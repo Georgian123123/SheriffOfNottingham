@@ -1,0 +1,35 @@
+----------------------------------------------------------------------------------------------------
+Structura programului
+----------------------------------------------------------------------------------------------------
+Clasa - GameEngine, motorul jocului, clasa in care jocul incepe, fiecare player punandu-si cartile
+        in mana, apoi in rucsac, seriful care ii verifica pe toti, eliminarea cartilor din mana,
+        bagaj, calcularea profitului atat d.p.d.v. legal cat si illegal, calcularea king bonusului,
+        calcularea leaderboard-ului.
+Clasa - Player, clasa globala care are atributurile fiecarui tip de player.
+Clasa - Bribe, Greedy, Basic, ce reprezinta strategiile playerilor, modul lor cum vor juca acest joc.
+----------------------------------------------------------------------------------------------------
+Idei de implementare
+----------------------------------------------------------------------------------------------------
+Pentru inceput, rucsacul cat si taraba lor le-am implementat sub forma de hashmap-uri, pentru a-mi
+usura munca cum voi pune aparitiile obiectelor.
+Pentru cautarea aparitiilor obiectelor am folosit vectori de frecventa.
+Pentru sortare am folosit algoritmi de sortare.
+Pentru utilizarea strategiei basic, voi folosi conceptul de upcasting.
+----------------------------------------------------------------------------------------------------
+Logica jocului
+----------------------------------------------------------------------------------------------------
+Basic- jucatorul basic, cauta daca are carti legale in mana, el va pune o carte legala cu aparitia
+maxima.In caz ca nu are carti legale el va pune o singura carte ilegala cu profit maxim iar aceasta
+o va declara ilegala.Ca serif, el va controla toti playerii si nu va accepta mita. Jucatorului de il
+prinde si este sincer, ii va da o suma de bani proportionala cu penalty ul bunului, iar pe cel minci-
+nos, ii va lua bani proportionala cu penalty ul, dar, ii va confisca si bunurile.
+
+Greedy- aproape ca jucatorul de baza, doar ca in runde pare va pune in bagaj bunurile ca el, apoi va
+pune o singura carte ilegala cu profitul maxim. Ca serif, el va lua mita doar de la bribe(daca are),
+daca nu, el va controla exact ca basicul.
+
+Bribe- Jucatorul marlan.El va pune toate cartile ilegale cu profit maxim atata timp cat are loc in
+rucsac si/sau nu mai are bani de penalty. El va da mita. Daca nu are carti ilegale va juca ca basic.
+Daca nu mai are bani de carti ilegale el va pune carti legale cat timp mai are bani.
+Ca serif, el va controla doar in stanga sau in dreapta, iar de la ceilalti va la doar mita.
+-----------------------------------------------------------------------------------------------------
